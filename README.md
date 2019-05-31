@@ -3,6 +3,10 @@
 programmed on processing to be run in raspberry pi.
 
 ## Requisites
+### Sound Library
+Download from the Import Library assistant in processing 
+
+### Mesa
 Download the Mesa3D repo on the pi
 ```
 git clone https://github.com/mesa3d/mesa.git
