@@ -42,8 +42,8 @@ float[] spectrum = new float[bands];
 
 
 public void setup() {
-  //size(1200,600,P3D);
   
+  //fullScreen(P3D);
   cols = w/scl;
   rows = h/scl;
   terrain = new float[cols][rows];                      //(x,y) mesh where the triangles are drawn
@@ -115,7 +115,7 @@ public void draw() {
   
 }
   
-  public void settings() {  fullScreen(P3D); }
+  public void settings() {  size(1200,600,P3D); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "--present", "--window-color=#666666", "--hide-stop", "terrainMirror" };
     if (passedArgs != null) {
