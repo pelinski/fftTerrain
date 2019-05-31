@@ -38,17 +38,17 @@ public void setup() {
 
   //++using an audio file++
   //use looseless files like .wav (decoding .mp3 makes the program go slowly)
-  //sample = new SoundFile (this, "bdsm.wav");                    
+  sample = new SoundFile (this, "bdsm.wav");                    
   //sample = new SoundFile (this, "05 - metallo.wav");  
-  //sample.loop();                                                      
-  //fft.input(sample);
-  //amp.input(sample);
+  sample.loop();                                                      
+  fft.input(sample);
+  amp.input(sample);
   
   
   //++microphone++
-  in = new AudioIn(this, 0);
-  fft.input(in);
-  amp.input(in);
+  //in = new AudioIn(this, 0);
+  //fft.input(in);
+  //amp.input(in);
   
   frameRate(60);                                                      //in fps;    
 }
