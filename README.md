@@ -2,6 +2,26 @@
 3d mesh of the signal coming out of the bloodbathslaughterdiscomachine
 programmed on processing to be run in raspberry pi.
 
+## Requisites
+Download the Mesa3D repo on the pi
+```
+git clone https://github.com/mesa3d/mesa.git
+```
+once its done,
+
+```
+cd
+mkdir build
+cd build
+meson ..
+sudo ninja install
+```
+This repo renders the P3D. You cannot use fullScreen(P3D) anymore and need to use
+```
+size (displayWidth, displayHeight, P3D)
+```
+instead.
+
 ## Status
 Working on Laptop (MacOS) but not on pi, looks like pi doesn't like processing3D (P3D)
 
