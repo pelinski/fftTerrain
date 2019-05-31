@@ -7,7 +7,7 @@ Working on Laptop (MacOS) but not on pi, looks like pi doesn't like processing3D
 
 ## The mesh
 2d grid with squares divided by its diagonal in triangles. Each vertex is indexed with [x][y], where:
-* [x] is the frequency bins
+* \[x] is the frequency bins
 * [y] is the timeline
 
 The vertex/nodes are then moved in the [z] direction using the amplitude of the fft
