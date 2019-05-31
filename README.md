@@ -6,15 +6,11 @@ programmed on processing to be run in raspberry pi.
 Working on Laptop (MacOS) but not on pi, looks like pi doesn't like processing3D (P3D)
 
 ## The mesh
-2d grid with triangles
+2d grid with squares divided by its diagonal in triangles. Each vertex is indexed with [x][y], where:
+* [x] is the frequency bins
+* [y] is the timeline
 
-each vertex is indexed with [x][y]
-
-[x] is the frequency bins
-
-[y] is the timeline
-
-the vertex/nodes are moved in the [z] direction using the amplitude of the fft
+The vertex/nodes are then moved in the [z] direction using the amplitude of the fft
 
 ## Usage on raspberryPi
 ```
