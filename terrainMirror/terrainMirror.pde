@@ -10,7 +10,7 @@ int scl = 20;                                  //scaling parameter (pixel betwee
 int bands = 128;
 int w = bands*scl;                             //every band becomes a vertex 
 int h = 9000;
-int scale = 5;
+int scale = 5000;
 
 //float flying = 0;                            //used in the perlin terrain to create the moving terrain effect
 float[][] terrain; 
@@ -24,7 +24,8 @@ float[] spectrum = new float[bands];
 
 
 public void setup() {
-  size(1200,600,P3D);
+  //size(1200,600,P3D);
+  fullScreen(P3D);
   cols = w/scl;
   rows = h/scl;
   terrain = new float[cols][rows];                      //(x,y) mesh where the triangles are drawn
@@ -38,18 +39,18 @@ public void setup() {
   //++using an audio file++
   //use looseless files like .wav (decoding .mp3 makes the program go slowly)
   //sample = new SoundFile (this, "bdsm.wav");                    
-  sample = new SoundFile (this, "05 - metallo.wav");  
-  sample.loop();                                                      //TODO configure for audio input in RaspberryPi
-  fft.input(sample);
-  amp.input(sample);
+  //sample = new SoundFile (this, "05 - metallo.wav");  
+  //sample.loop();                                                      
+  //fft.input(sample);
+  //amp.input(sample);
   
   
   //++microphone++
-  //in = new AudioIn(this, 0);
-  //fft.input(in);
-  //amp.input(in);
+  in = new AudioIn(this, 0);
+  fft.input(in);
+  amp.input(in);
   
-  frameRate(60);                                                      // 60 fps;    
+  frameRate(60);                                                      //in fps;    
 }
   
 
@@ -68,21 +69,27 @@ public void draw() {
     
     //yoff += 0.1;
   }
-  translate(0,height/4,-400);
+ //translate(width/4,height/2,-100);
   
   background(0);
   stroke(40,254,20);
   noFill();
   
-  
-  translate((width/2)*amp.analyze(),(height/2)*amp.analyze());                             //amp goes between 0 and 1, creates distorsion illusion                          
+
+  translate(width/4+(width/2)*amp.analyze(),height*(1-amp.analyze()*0.05)/2);                             //amp goes between 0 and 1, creates distorsion illusion                          
   rotateX(amp.analyze()*PI/4); 
-  rotateX(PI/5+PI*(1.05-amp.analyze())/4);                                                 //TODO mirror fft in the same loop so that the low frequencies stay in the middle. x symmetry  
+  rotateX(PI/5+PI*(1.05-amp.analyze())/4);                                                //TODO mirror fft in the same loop so that the low frequencies stay in the middle. x symmetry  
   for (int y = 0; y < rows-1; y++) {
     beginShape(TRIANGLE_STRIP);
     for (int x = 0; x < cols;  x++) {
-      vertex(x*scl,y*scl,sum[x][y]*10000);
-      vertex(x*scl,(y+1)*scl,sum[x][y+1]*10000);
+      vertex(x*scl,y*scl,sum[x][y]*scale);
+      vertex(x*scl,(y+1)*scl,sum[x][y+1]*scale);
+    }
+    endShape();
+    beginShape(TRIANGLE_STRIP);
+    for (int x = 0; x < cols;  x++) {
+      vertex(-x*scl,y*scl,sum[x][y]*scale);
+      vertex(-x*scl,(y+1)*scl,sum[x][y+1]*scale);
     }
     endShape();
     //translate(0,-400);                  //looks cool
