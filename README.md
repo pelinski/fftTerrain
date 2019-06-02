@@ -4,7 +4,7 @@ programmed on processing to be run in raspberry pi.
 
 ## Requisites
 ### Sound Library
-Download from the Import Library assistant in processing 
+Download from the Import Library assistant in processing
 
 ### Mesa
 Download the Mesa3D repo on the pi
@@ -44,3 +44,6 @@ DISPLAY=:0 processing-java --sketch=yourdir\terrainMirror --run
 ## Contents
 * terrainMirror: uses fullScreen(P3D) as renderer, audioInput (mic/input signal)
 * terrainMirrorScr: uses size(1200,600,P3D) instead, sampleInput (wav file)
+
+## References
+* 
