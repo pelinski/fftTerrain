@@ -24,8 +24,8 @@ float[] spectrum = new float[bands];
 
 
 public void setup() {
-  size(1200,600,P3D);
-  //fullScreen(P3D);
+  //size(1200,600,P3D);
+  fullScreen(P3D);
   cols = w/scl;
   rows = h/scl;
   terrain = new float[cols][rows];                      //(x,y) mesh where the triangles are drawn
@@ -50,7 +50,7 @@ public void setup() {
   fft.input(in);
   amp.input(in);
   
-  frameRate(60);                                                      //in fps;    
+  frameRate(30);                                                      //in fps;    
 }
   
 
