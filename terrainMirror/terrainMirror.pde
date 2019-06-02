@@ -7,7 +7,7 @@ AudioIn in;
 
 int cols,rows;
 int scl = 20;                                  //scaling parameter (pixel between triangle vertex)
-int bands = 128;
+int bands = 64;                               //power of 2
 int w = bands*scl;                             //every band becomes a vertex 
 int h = 9000;
 int scale = 5000;
