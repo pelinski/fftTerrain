@@ -12,7 +12,7 @@ sudo raspi-config
 ```
 Under Advanced Options > GL Driver choose **GL (Full KMS)**.
 
-###GPU
+### GPU
 Under Raspberry Pi Configuration > Performance > set "GPU memory" higher. Reboot. If the raspberryPi doesn't boot, reboot manually and access Recovery Mode, change the config.txt file and reduce the GPU number there.
 
 ## Status
