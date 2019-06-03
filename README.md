@@ -7,27 +7,16 @@ programmed on processing to be run in raspberry pi.
 Download from the Import Library assistant in processing
 
 ### Mesa
-Download the Mesa3D repo on the pi
 ```
-git clone https://github.com/mesa3d/mesa.git
+sudo raspi-config
 ```
-once its done,
+Under Advanced Options > GL Driver choose **GL (Full KMS)**.
 
-```
-cd
-mkdir build
-cd build
-meson ..
-sudo ninja install
-```
-This repo renders the P3D. You cannot use fullScreen(P3D) anymore and need to use
-```
-size (displayWidth, displayHeight, P3D)
-```
-instead.
+###GPU
+Under Raspberry Pi Configuration > Performance > set "GPU memory" higher. Reboot. If the raspberryPi doesn't boot, reboot manually and access Recovery Mode, change the config.txt file and reduce the GPU number there.
 
 ## Status
-Working on Laptop (MacOS) but not on pi, looks like pi doesn't like processing3D (P3D)
+Working on Laptop (MacOS) with high resolution. Working on on pi but much slower and only after using the experimental GL driver and after having improved the GPU. Looks like pi doesn't like processing3D (P3D). Further work: make the fft go slower (instead of performing it after n samples, perform it after 2*n samples). At the moment it goes faster as the driver graphics can render.
 
 ## The mesh
 2d grid with squares divided by its diagonal in triangles. Each vertex is indexed with [x][y], where:
@@ -46,4 +35,4 @@ DISPLAY=:0 processing-java --sketch=yourdir\terrainMirror --run
 * terrainMirrorScr: uses size(1200,600,P3D) instead, sampleInput (wav file)
 
 ## References
-* 
+*
