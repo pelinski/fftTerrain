@@ -27,9 +27,30 @@ The vertex/nodes are then moved in the [z] direction using the amplitude of the 
 
 ## Usage on raspberryPi
 ```
-cd yourdir
 DISPLAY=:0 processing-java --sketch=yourdir\terrainMirror --run
 ```
+### Runing the script at boot
+```
+cd
+sudo nano runBloodyTerrains.sh
+```
+Inside the file write:
+```
+DISPLAY=:0 processing-java --sketch=/home/pi/bloodyTerrains/terrainMirror --run
+```
+Then ctrl + X to save. You can test if it works with:
+```
+bash runBloodyTerrains.sh
+```
+If it works, we need to edit the config file for the pi boot. Type:
+```
+sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+```
+and inside the file, type:
+```
+@bash /home/pi/bloodyTerrains.sh
+```
+Save and done.
 ## Contents
 * terrainMirror: uses fullScreen(P3D) as renderer, audioInput (mic/input signal)
 * terrainMirrorScr: uses size(1200,600,P3D) instead, sampleInput (wav file)
