@@ -1,4 +1,4 @@
-# fftTerrains
+# fftTerrain
 
 3D responsive mesh of an audio signal. Programmed on Processing-java to be run in Raspberry Pi, working also on Desktop. The program performs a FFT (Fourier Fast Transform) of the audio signal and represents the amplitudes of the frequencies in a mesh. The mesh consists of a 2D grid with its squares divided by its diagonal in triangles. Each vertex is indexed with [x][y], where [x] are the frequency bins and [y] is the timeline. The vertex are then moved in the [z] direction proportionally to the FFT amplitude.
 
