@@ -76,10 +76,10 @@ size(1200,600,P3D);
 On the terminal, write:
 
 ```
-DISPLAY=:0 processing-java --sketch=yourdir\terrain --run
+DISPLAY=:0 processing-java --sketch=yourdir/fftTerrain/terrain --run
 ```
 
-where `yourdir`refers to the repository folder.
+where `yourdir`refers to the parent folder of this repo.
 
 #### Runing the script at boot
 
@@ -91,7 +91,7 @@ sudo nano run_fftTerrain.sh
 Inside the file write:
 
 ```
-DISPLAY=:0 processing-java --sketch=/home/pi/fttTerrain/terrain --run
+DISPLAY=:0 processing-java --sketch=yourdir/fttTerrain/terrain --run
 ```
 
 Then ctrl + X to save. You can test if it works with:
