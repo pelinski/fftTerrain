@@ -4,6 +4,9 @@
 
 ![demo pic](.bin/demo.png)
 
+## Status
+
+Working correctly on laptop with high resolution. Working on on pi but much much slower and only after using the experimental GL driver and after having improved the GPU. Looks like pi doesn't like processing3D (P3D) :-(.
 
 ## Requisites
 
@@ -22,11 +25,6 @@ Under Advanced Options > GL Driver choose **GL (Full KMS)**.
 ### GPU
 
 Under Raspberry Pi Configuration > Performance > set "GPU memory" higher. Reboot. If the raspberryPi doesn't boot, reboot manually and access Recovery Mode, change the config.txt file and reduce the GPU number there.
-
-
-## Status
-
-Working on Laptop (MacOS Sierra mid 2011) with high resolution. Working on on pi but much slower and only after using the experimental GL driver and after having improved the GPU. Looks like pi doesn't like processing3D (P3D). Further work: make the fft go slower (instead of performing it after n samples, perform it after 2\*n samples). At the moment it goes faster as the driver graphics can render.
 
 ## Usage
 
