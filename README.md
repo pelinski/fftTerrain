@@ -46,19 +46,20 @@ amp.input(sample);
 If you want to use direct audio input, comment the previous block and uncomment the following block, this way:
 
 ```java
+/*
 //++using an audio file++
 //use lossless files like .wav (decoding .mp3 makes the program go slow)
 sample = new SoundFile (this, "your-file.wav");
 sample.loop();
 fft.input(sample);
 amp.input(sample);
-
+*/
 
 //++microphone++
 //uncomment the block below to use audio input from microphone
-/*in = new AudioIn(this, 0);
+in = new AudioIn(this, 0);
 fft.input(in);
-amp.input(in);*/
+amp.input(in);
 ```
 
 ### Disable full screen
